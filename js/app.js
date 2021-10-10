@@ -138,4 +138,44 @@ function agregarPlatillo(producto) {
         const resultado = pedido.filter(articulo => articulo.id !== producto.id);
         cliente.pedido = [...resultado];
     }
+
+    //Muestra el resumen
+    actualizarResumen();
+}
+
+function actualizarResumen() {
+    console.log('Desde actualizar resumen');
+}
+
+function actualizarResumen() {
+    const contenido = document.querySelector('#resumen .contenido');
+
+    const resumen = document.createElement('DIV');
+    resumen.classList.add('col-md-6');
+
+    //Información de la mesa
+    const mesa = document.createElement('P');
+    mesa.textContent = 'Mesa: ';
+    mesa.classList.add('fw-bold');
+
+    const mesaSpan = document.createElement('SPAN');
+    mesaSpan.textContent = cliente.mesa;
+    mesaSpan.classList.add('fw-normal');
+
+    //Información de la hora
+    const hora = document.createElement('P');
+    hora.textContent = 'Hora: ';
+    hora.classList.add('fw-bold');
+
+    const horaSpan = document.createElement('SPAN');
+    horaSpan.textContent = cliente.hora;
+    horaSpan.classList.add('fw-normal');
+
+    //Agrega a los elementos padre
+    mesa.appendChild(mesaSpan);
+    hora.appendChild(horaSpan);
+
+    //Agrega al contenido
+    contenido.appendChild(mesa);
+    contenido.appendChild(hora);
 }
